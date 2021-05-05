@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-{{$b}}
+
 <div class="mt-3">
 <h2>LISTE DES EVENEMENTS :</h2>
 <a href="{{url('/admin/event/create')}}" type="button" class="mb-2 btn btn-info float-end ">Créer un évenement</a>    
@@ -36,7 +36,54 @@
      
         <td>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <a href="{{url('/admin/event/'.$e->id.'/edit')}}" type="button" class="btn btn-success ">Modifier</a>
+              <a href="{{url('/admin/event/'.$e->id.'/edit')}}" type="button" class="btn btn-success "  data-bs-toggle="modal" data-bs-target="#exampleModal">Modifier</a>
+                <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modifer l'évenement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     
+     
+            @csrf
+            @method('PUT')
+            @include('admin.event.form')
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+       
+        
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <form method='POST'  action="{{ url('/admin/event/'.$e->id) }}">
                    @csrf
                    @method('DELETE')

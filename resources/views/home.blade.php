@@ -15,7 +15,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Acc</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#about">A propos</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -69,7 +69,7 @@
       <div class="row gy-4">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>Anybody can give blood with smart donnation</h1>
-          <h2>quand vous faites un don de sang , votre sang circule dans l'érection d'une autre<br> personne..</h2>
+          <h2>quand vous faites un don de sang , votre sang circule dans l'érection d'une autre<br> personne.</h2>
           <div>
             <a href="#" class="btn-get-started scrollto">Rendez vous</a>
           </div>
@@ -99,12 +99,27 @@
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <i class="bx bx-receipt"></i>
                 <h4>Evénement</h4>
-                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                
+                  <ul>
+
+                  <li><i class="fas fa-location-arrow"></i></li>
+                  <li><i class="far fa-clock"></i></li>
+                  
+              
+                  
+
+
+                  </ul>
+                
+                    
+
+                </ul>
+                  
               </div>
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <i class="bx bx-cube-alt"></i>
                 <h4>Détails</h4>
-                <p>{{$events->place}}</p>
+                <p>{{$event->description}}</p>
               </div>
             </div>
           </div>

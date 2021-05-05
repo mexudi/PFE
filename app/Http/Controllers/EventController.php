@@ -8,13 +8,7 @@ use App\Models\Event;
 class EventController extends Controller
 {
 
-    public function home()
-    {
-        
-        $events = Event ::find(1);
-        return view('home',['events'=>$events]);
-    }
-
+    
 
 
 
@@ -25,14 +19,18 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public function event(){
 
+        $event = Event::all()->last();
+        return view('home',['event'=>$event]);
+    }
 
     
     public function index()
     {
         
         $events = Event ::all();
-        return view('admin.event.index',['events'=>$events,'b'=>$b]);
+        return view('admin.event.index',['events'=>$events]);
     }
 
     /**

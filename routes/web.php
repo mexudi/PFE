@@ -14,25 +14,26 @@ use App\Http\Controllers\EventController;
 |
 */
 
+//Home----------------------------------------------
 Route::get('/',function(){
     return view('home');
 });
-
-
-Route::get('/sign',function(){
-    return view('login');
-});
+//ENDHOME------------------------------------
 
 
 
-//Admin_Events-------------------------------------------------------
+
+
+//Admin_Events-CRUD-------------------------------------------------------
 Route::get('/admin/event',[EventController::class,'index']);
 Route::get('/admin/event/create',[EventController::class,'create']);
 Route::post('/admin/event/store',[EventController::class,'store']);
 Route::get('/admin/event/{id}/edit',[EventController::class,'edit']);
 Route::put('/admin/event/{id}/update',[EventController::class,'update']);
 Route::delete('/admin/event/{id}',[EventController::class,'destroy']);
-//------------------------------------------------------------------
+//-------------------------------------------------------------------
+Route::get('/',[EventController::class,'event']);
+//END_ADMIN_EVENTS------------------------------------------------------------------
 
 
 
