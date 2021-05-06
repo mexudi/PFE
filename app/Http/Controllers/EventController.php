@@ -19,7 +19,7 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function event(){
+    public function home(){
 
         $event = Event::all()->last();
         return view('home',['event'=>$event]);

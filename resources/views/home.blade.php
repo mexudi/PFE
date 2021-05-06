@@ -53,8 +53,34 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto" href="#about">A propos</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="{{url('/login')}}">Sign in  </a></li>
-          <li><a class="getstarted scrollto" href="{{url('/register')}}">Sign up</a></li>
+          @guest
+            @if (Route::has('login'))
+              <li><a class="getstarted scrollto" href="{{url('/login')}}">Sign in  </a></li>
+            @endif
+            @if (Route::has('register'))
+              <li><a class="getstarted scrollto" href="{{url('/register')}}">Sign up</a></li>
+            @endif
+            @else
+              <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    {{ Auth::user()->name }}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{url('/profil')}}" style="color: black;">Profil</a>
+                    <a class="dropdown-item" href="{{url('/user/profile')}}" style="color: black;">Paramétre</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+              </li>
+          @endguest
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -419,6 +445,7 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ mix('js/app.js') }}" defer></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
