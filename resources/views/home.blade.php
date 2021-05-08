@@ -150,29 +150,54 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+   <!-- ======= About Section ======= -->
+   <section id="about" class="about">
       <div class="container">
-
+      <div class="section-title">
+        <p data-aos="fade-up">Prochain événement</p>
+      </div>
         <div class="row justify-content-between">
           <div class="col-lg-5 d-flex align-items-center justify-content-center about-img">
             <img src="assets/img/blood2.png" class="img-fluid" alt="" data-aos="zoom-in">
           </div>
-          <div class="col-lg-6 pt-5 pt-lg-0">
-            <h3 data-aos="fade-up">Prochain événement</h3>
-           
-            <div class="row">
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <i class="bx bx-receipt"></i>
-                <h4>Evénement</h4>
-                
-                  
-                  
+          <div class="col-lg-6 pt-5 pt-lg-0 mt-4" data-aos="fade-up" data-aos-delay="100">
+            
+            <div class="card mb-3" style="width: 500px;">
+              <div class="row no-gutters">
+                <div class="col-12">
+                  <div class="card-body">
+                    <h5 class="card-title" style="font-weight: 700;">{{$event->name}} </h5>
+                    <p class="card-text" style="font-size: 18px;"><i class="fas fa-map-marker-alt" style="color: red; font-size:15px;"></i>  <small> {{$event->place}} </small></p>
+                    <p class="card-text" style="font-size: 18px;"><i class="fas fa-calendar-alt" style="color: red; font-size:15px;"></i><small class="text-muted"> {{$event->date}} </small></p>
+                    <p class="card-text" style="font-size: 18px;"><small class="text-muted"> {{$event->description}} <div class="text-info"> Pour plus des infos : +212XXXXXXXXX</div></small></p>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #eb1e4b; color:#fff; float:right; margin-bottom:8px;">
+                      Participer
+                    </button>
+
+                    
+                  </div>
+                </div>
               </div>
-              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <i class="bx bx-cube-alt"></i>
-                <h4>Détails</h4>
-                <p>{{$event->description}}</p>
+            </div>
+           
+            
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  @include('admin.event.home.participate')
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
               </div>
             </div>
           </div>
@@ -180,6 +205,24 @@
 
       </div>
     </section><!-- End About Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 <!-- ======= Services Section ======= -->
 <section id="services" class="services section-bg" >
   <div class="container" data-aos="fade-up">

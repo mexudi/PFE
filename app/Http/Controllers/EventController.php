@@ -18,6 +18,10 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+  
+
+
+
 
     public function home(){
 
@@ -51,10 +55,10 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([ 'name'=>'required |min:4 |max:10']);
-        $request->validate([ 'place'=>'required |min:4 |max:10']);
+        $request->validate([ 'name'=>'required |min:4 ']);
+        $request->validate([ 'place'=>'required |min:4 ']);
         $request->validate(['date'=>'required ']);
-        $request->validate([ 'description'=>'required |min:20 |max:200']);
+        $request->validate([ 'description'=>'required ']);
 
         $event = new Event();
 
@@ -105,10 +109,10 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([ 'name'=>'required |min:4 |max:10']);
-        $request->validate([ 'place'=>'required |min:4 |max:10']);
+        $request->validate([ 'name'=>'required |min:4 ']);
+        $request->validate([ 'place'=>'required |min:4 ']);
         $request->validate(['date'=>'required ']);
-        $request->validate([ 'description'=>'required |min:20 |max:200']);
+        $request->validate([ 'description'=>'required ']);
 
         $event = Event::findOrFail($id);
 
