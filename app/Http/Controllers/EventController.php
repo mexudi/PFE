@@ -22,7 +22,6 @@ class EventController extends Controller
 
 
 
-
     public function home(){
 
         $event = Event::all()->last();
