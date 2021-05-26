@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,10 +31,10 @@ Route::get('/admin/event/{id}/edit',[EventController::class,'edit']);
 Route::put('/admin/event/{id}/update',[EventController::class,'update']);
 Route::delete('/admin/event/{id}',[EventController::class,'destroy']);
 
-Route::get('/profile',function(){
-
-    return view ('profileDonneur.index');
-});
+//profile donneur-CRUD --------------------------------------------------
+Route::get('/profile',[ProfileController::class,'index'])->middleware('auth');
+Route::get('/profile',[ProfileController::class,'create']);
+Route::post('/profile', [ProfileController::class,'store']);
 
 
 
