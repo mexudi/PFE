@@ -44,20 +44,30 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="profileDonneur/assets/img/prf.png" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Karim benali</a></h1>   
+      
+          <img src="profileDonneur/assets/img/prf.png" alt="" class="img-fluid rounded-circle">
+      
+        <h1 class="text-light"><a href="index.html">{{$user->name}}</a></h1>   
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
            
-        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Accueil</span></a></li>
+        <li><a href="/" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Accueil</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Profile medical</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Bilan</span></a></li>
           <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Historique</span></a></li>
           <li><a href="#parametre" class="nav-link scrollto"><span class="iconify i" data-icon="bytesize:settings" data-inline="false"></span></i> <span>Paramètre</span></a></li>
           
-          <li><a href="#logout" class="nav-link scrollto"><i class=" bx bx-log-out "></i> <span>Se déconnecter</span></a></li>
+          <li>  <a  href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
+                                      <i class=" bx bx-log-out "></i>
+                        {{ __('Se Déconnecter') }}
+                    </a></li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
 
           
           
@@ -69,7 +79,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>Karim benali</h1>
+      <h1>{{$user->name}}</h1>
       <p>Je suis <span class="typed" data-typed-items=" Maroccain, Jeune, Donneur"></span></p>
     </div>
   </section><!-- End Hero -->
@@ -87,41 +97,18 @@
       </div>
 
       <div class="row">
-        
+   
         <div class="col-lg-8 pt-4 pt-lg-0 content" >
-       
-
-         <div class="d-flex justify-content-between">
-            <h3>Information personnel :</h3>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary  " data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Saisir information
-            </button>
+          <div class="container-fluid ">
+            <div class=" mb-5 d-flex justify-content-between">
+              <h3>Information personnel :</h3>
+              <!-- Button trigger modal Add -->
+            
+            </div>
           </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Information personnel</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form method="POST" action="{{ url('/profile') }}">
-      @csrf
-      @include('profileDonneur.form')
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-       
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
+           
+         
           <div class="row">
             <div class="col-lg-6">
               <ul>
@@ -138,6 +125,29 @@
                 <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Tetouan</span></li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Pays:</strong> <span>Morocco</span></li>
               </ul>
+            </div>
+            <div class="mb-3">
+            
+            </div>
+             <!-- Modal Edit -->
+             <div class="modal fade" id="EditModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Information personnel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                  <form method="POST" action="{{ url('/profile/1/update') }}">
+                 
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                  </div>
+                  </div>
+                  
+                </div>
+              </div>
             </div>
           </div>
         </div>

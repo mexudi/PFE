@@ -3,26 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Profile;
-use App\Models\User;
-use Auth;
-
-class ProfileController extends Controller
+use App\Models\Rendez;
+class RendezController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    
-
     public function index()
     {
-        $user = Auth::user();
-        $info = Profile::where('user_id',Auth::user()->id)->get();
-        return view('profileDonneur.index',['info'=>$info,'user'=>$user]);
-
+        //
     }
 
     /**
@@ -32,7 +23,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        return view('profileDonneur.informationPersonnel.create');
+        //
     }
 
     /**
@@ -46,27 +37,23 @@ class ProfileController extends Controller
         $request->validate([ 'nom'=>'required  ']);
         $request->validate([ 'prenom'=>'required  ']);
         $request->validate(['cin'=>'required ']);
-        $request->validate([ 'dtn'=>'required ']);
-        $request->validate([ 'dtn'=>'required ']);
         $request->validate([ 'tel'=>'required ']);
-        $request->validate([ 'ville'=>'required ']);
+        $request->validate([ 'date'=>'required ']);
 
-        $profile = new Profile();
 
-        $profile->nom = $request->input('nom');
-        $profile->prenom = $request->input('prenom');
-        $profile->cin = $request->input('cin');
-        $profile->dtn = $request->input('dtn');
-        $profile->tel = $request->input('tel');
-        $profile->ville = $request->input('ville');
-        $profile->type_sang = 'A';
-        $profile->user_id = Auth::user()->id;
+        $rendez = new Rendez();
 
-        $profile->save();
+        $rendez->nom = $request->input('nom');
+        $rendez->prenom = $request->input('prenom');
+        $rendez->cin = $request->input('cin');
+        $rendez->tel = $request->input('tel');
+        $rendez->date = $request->input('date');
 
-        return redirect('/profile');
-        
-
+        $rendez->save();
+        $request->session()->flash('status', 'Votre rendez vous est bien enregistré ');
+        return redirect('/');
+       
+    
 
     }
 

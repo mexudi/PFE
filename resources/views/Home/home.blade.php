@@ -17,37 +17,18 @@
                    <div class="modal-content">
                        <div class="modal-header">
                              <h5 class="modal-title" id="exampleModalLabel">Prendre un rendez-vous</h5>
+                           
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
-               <div class="mb-3">
-                <label for="name" class="form-label">Nom</label>
-                <input  type="text" class="form-control" name="name" id="name" placeholder="Entrer votre nom ">
-                 @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-                 </div>
-
-                  <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input  type="text" class="form-control" name="place" id="place" placeholder="Entrer votre email">
-                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
-                  </div>
-
-
-
-                <div class="mb-3">
-              <label for="date" class="form-label">Date</label>
-              <input value="{{old('date',$event->date ?? null)}}" type="date" class="form-control" name="date" id="date">
-              @error('date') <span class="text-danger">{{ $message }}</span> @enderror
-              </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-        <button type="button" class="btn btn-primary">Enregistrer</button>
+            @csrf
+            @include('Home.rendezvs')
       </div>
     </div>
   </div>
 </div>
+
 
         <!--  Fin de la popup de rendez-vous -->
           </div>

@@ -25,7 +25,7 @@ class EventController extends Controller
     public function home(){
 
         $event = Event::all()->last();
-        return view('home',['event'=>$event]);
+        return view('Home.home',['event'=>$event]);
     }
 
     
