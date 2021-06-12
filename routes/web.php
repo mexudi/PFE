@@ -21,6 +21,13 @@ use App\Http\Controllers\RendezController;
 Route::get('/', function () {
     return view('Home.home');
 });
+
+Route::get('/form', function () {
+    return view('profileDonneur.informationPersonnel.create');
+});
+
+
+
     //---- rendez vous
 
  Route::post('/store',[RendezController::class,'store']);

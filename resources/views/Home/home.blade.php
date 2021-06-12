@@ -6,7 +6,8 @@
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Anybody can give blood with smart donnation</h1>
+          <h1>
+Tout le monde peut donner du sang avec Blood App</h1>
           <h2>quand vous faites un don de sang , votre sang circule dans l'érection d'une autre<br> personne.</h2>
           <div>
             <a href="#" class="btn-get-started scrollto" data-bs-toggle="modal" data-bs-target="#exampleModal">Rendez vous</a>
@@ -132,9 +133,8 @@
       <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
         <div class="icon-box">
           <div class="icon"><i class="bx bxl-dribbble"></i></div>
-          <h4 class="title"><a href="">Magni Dolores</a></h4>
-          <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim</p>
+          <h4 class="title"><a href="">Avoir votre profil médical</a></h4>
+          <p class="description">Si vous voulez un profil médical complet , contient votre infromation personnel et médical<br><a href="/form" style="color:#eb1e4b;">Saisir votre infromation</a></p>
         </div>
       </div>  
       
@@ -304,78 +304,76 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-   
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Centre De Transfusion TETOUAN </h3>
-           
-            <p>
-              Avenue Abdelkhalek Torres,  <br>
-              Tetouan - 93000 <br>
-              Maroc <br><br>
-              <strong>Phone:</strong> 05359-98750<br>
-              <strong>Email:</strong> tetouan.transfusion@gmail.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Liens utiles</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">A propos</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
-              
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Notre services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Rendez vous</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">bilan sanguin </a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Historique de donation</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Prochain événement</a></li>
-              
-              
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Notre réseaux sociaux</h4>
-            <p>suivez notre réseaux sociaux pour savoir plus d'informations sur notre centre.</p>
-            <div class="social-links mt-3">
-              <a href="https://www.facebook.com/crtstetouan" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://www.instagram.com/explore/locations/1027028953/centre-regional-de-transfusion-sanguine-de-tetouan/" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="https://twitter.com/CentreCnts" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+  <footer class="new_footer_area bg_color">
+            <div class="new_footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Centre De Transfusion TETOUAN</h3>
+                                
+                                <p style="color:#6a7695;">
+                                    Avenue Abdelkhalek Torres,  <br>
+                                    Tetouan - 93000 <br>
+                                    Maroc <br><br>
+                                    <strong>Phone:<br></strong> 05359-98750<br>
+                                    <strong>Email:</strong> tetouan.transfusion@gmail.com<br>
+                               </p>
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Liens utiles</h3>
+                                <ul class="list-unstyled f_list">
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">A propos</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Notre services</h3>
+                                <ul class="list-unstyled f_list">
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Rendez vous</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">bilan sanguin </a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Historique de donation</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Prochain événement</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Réseaux sociaux</h3>
+                                <div class="f_social_icon">
+                                    <a href="https://www.facebook.com/crtstetouan" class="fab fa-facebook"></a>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                    <a href="https://www.instagram.com/explore/locations/1027028953/centre-regional-de-transfusion-sanguine-de-tetouan/" class="fab fa-instagram"></a>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_bg">
+                    <div class="footer_bg_one"></div>
+                    <div class="footer_bg_two"></div>
+                </div>
             </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid py-4   bg-info" >
-      <div class="copyright ustify-content-center"  style = "text-align: center;">
-             &copy; Copyright <strong><span>Blood App</span></strong>. All Rights Reserved
-      
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/ -->
-        
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-  
+            <div class="footer_bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-sm-7">
+                            <p class="mb-0 f_400">© Copyright <strong><span>Blood App</span></strong>. All Rights Reserved.</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   @endsection('content')

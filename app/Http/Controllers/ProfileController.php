@@ -20,8 +20,8 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $info = Profile::where('user_id',Auth::user()->id)->get();
-        return view('profileDonneur.index',['info'=>$info,'user'=>$user]);
+       
+        return view('profileDonneur.index',['user'=>$user]);
 
     }
 

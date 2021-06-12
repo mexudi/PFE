@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 9997;
   transition: all 0.5s;
   padding: 0 15px;
-  background: #E04235;
+  background-color: rgb(220,38,38,0.5);
   overflow-y: auto;
 }
 
