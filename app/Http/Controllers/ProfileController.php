@@ -20,8 +20,16 @@ class ProfileController extends Controller
     public function index()
     {
         $user = Auth::user();
-       
-        return view('profileDonneur.index',['user'=>$user]);
+        $check = Profile::where('user_id',$user->id)->get('nom');
+        //$ddn = $user->profile->ddn;
+
+        if($check->isEmpty()){
+            
+            return view('home.error');
+        }
+        else{
+            return view('profileDonneur.index',['user'=>$user]);
+        }
 
     }
 

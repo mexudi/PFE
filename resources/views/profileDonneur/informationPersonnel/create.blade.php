@@ -1,6 +1,6 @@
 <link href="/css/info.css" rel="stylesheet">
 <body>
-@extends('layouts.app')
+@extends('layouts.nav')
 @section('content')
 
 <div id="infos" >

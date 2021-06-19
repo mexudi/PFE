@@ -25,12 +25,7 @@
   <!-- Template Main CSS File -->
   <link href="profileDonneur/assets/css/style.css" rel="stylesheet">
   <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-  <!-- =======================================================
-  * Template Name: iPortfolio - v3.2.0
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <script src="https://kit.fontawesome.com/8ef90da84f.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -47,7 +42,7 @@
       
           <img src="profileDonneur/assets/img/prf.png" alt="" class="img-fluid rounded-circle">
       
-        <h1 class="text-light"><a href="index.html">{{$user->name}}</a></h1>   
+        <h1 class="text-light"><a href="index.html">{{$user->profile->prenom}} {{$user->profile->nom}}</a></h1>   
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
@@ -79,7 +74,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>{{$user->name}}</h1>
+      <h1>{{$user->profile->prenom}} {{$user->profile->nom}}</h1>
       <p>Je suis <span class="typed" data-typed-items=" Maroccain, Jeune, Donneur"></span></p>
     </div>
   </section><!-- End Hero -->
@@ -112,18 +107,17 @@
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Nom et Prenom:</strong> <span>Mexudi Mexudi</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>CIN:</strong> <span>L123456</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Date de naissance:</strong> <span>16 Janvier 2001</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Nom et Prenom:</strong> <span>{{$user->profile->prenom}} {{$user->profile->nom}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>CIN:</strong> <span>{{$user->profile->cin}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Date de naissance:</strong> <span></span></li>
                
                
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Tel</strong> <span>+123 456 7890</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>Tetouan</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Pays:</strong> <span>Morocco</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Tel</strong> <span>{{$user->profile->tel}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Ville:</strong> <span>{{$user->profile->ville}}</span></li>
               </ul>
             </div>
             <div class="mb-3">
@@ -160,19 +154,53 @@
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Type de sang:</strong> <span> O plus</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Maladies:</strong> adiabatique <span></span></li>
-                
-               
-               
+                <li><i class="bi bi-chevron-right"></i> <strong>Type de sang:</strong> <span>{{$user->profile->type_sang}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Maladies:</strong> <span></span></li>
+                <div>
+                  <li style="padding-left: 25px;"><i class="fas fa-plus-circle"></i> <strong>Les maladies genetiques de sang:</strong><br> <span></span></li>
+                  <li style="padding-left: 25px;"><i class="fas fa-plus-circle"></i> <strong>Les maladies genetiques de sang:</strong><br> <span></span></li>
+                  <li style="padding-left: 25px;"><i class="fas fa-plus-circle"></i> <strong>Les maladies genetiques de sang:</strong><br> <span></span></li>
+                </div>
               </ul>
+              <!-- Button trigger modal -->
+              <div style="padding-left: 25px;">
+                <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-color: #DC2626; color:white; font-weight: 600;">
+                  Ajouter
+                </button>
+              </div>
+
+             
             </div>
           
           </div>
+           
         </div>
       </div>
-
+      
     </div>
+    <!-- Modal Ajouter des maladies-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <select class="form-select" aria-label="Default select example">
+                      <option selected>-----</option>
+                      <option value="1">Les maladies genetiques de sang</option>
+                      <option value="2">Anémie sévere</option>
+                      
+                    </select>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn " style="background-color: #DC2626; color:white;">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
   </section><!-- End About Section -->
 
    
@@ -195,7 +223,7 @@
       Vous pouvez voir votre bilan sanguin (cliquer sur voir) et de le telecharger(cliquer sur telecharger).
     </p>
     <a href="#" class="btn btn-primary">VOIR</a>
-    <a href="#" class="btn btn-danger">TELECHARGER</a>
+    <a href="#" class="btn" style="background-color: #DC2626; color:white;">TELECHARGER</a>
   </div>
   <div class="card-footer text-muted"></div>
 </div>
@@ -218,28 +246,29 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Nom et Prenom</th>
+              <th scope="col">Date</th>
+              <th scope="col">Location</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <td>Admin</td>
+              <td>10/10/2020</td>
+              <td>av. Abdelkhalek Torres, Hôpital civil Saniat R'mel 93000 Tétouan, Maroc</td>
             </tr>
             <tr>
               <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <td>Admin</td>
+              <td>14/02/2021</td>
+              <td>av. Abdelkhalek Torres, Hôpital civil Saniat R'mel 93000 Tétouan, Maroc</td>
             </tr>
             <tr>
               <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
+              <td>Admin</td>
+              <td>11/06/2021</td>
+              <td>av. Abdelkhalek Torres, Hôpital civil Saniat R'mel 93000 Tétouan, Maroc</td>
             </tr>
           </tbody>
         </table>

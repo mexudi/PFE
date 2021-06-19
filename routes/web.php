@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RendezController;
 
+use function Ramsey\Uuid\v1;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,7 @@ Route::delete('/admin/event/{id}',[EventController::class,'destroy']);
 //profile donneur-CRUD --------------------------------------------------
 
 Route::get('/profile',[ProfileController::class,'index']);
+Route::post('/profile/store',[ProfileController::class,'store']);
 
 
 
@@ -75,3 +77,17 @@ Route::get('/profile',[ProfileController::class,'index']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('admin/dashboard',function(){
+    return view('admin.event.dashboard.index');
+});
+
+Route::get('admin/s',function(){
+    return view('admin.event.dashboard.s');
+});
+
+
+Route::get('/error',function(){
+    return view('home.error');
+});
+
