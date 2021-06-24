@@ -134,6 +134,11 @@
                 
 
                 <!-- DataTales Example -->
+                @if(session()->has('status'))
+  <div class="alert alert-success" role="alert">
+    {{session()->get('status')}}
+  </div> 
+@endif
                 <div class="card shadow mt-4 mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
@@ -160,20 +165,28 @@
                                             <td>
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                Creer Profil
+                                                Creer Profil {{$user->id}}
                                                 </button>
-
+                                                <form method="POST" action="{{ url('admin/profil/store') }}">
+                                                        @csrf
                                                 <!-- Modal -->
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">{{$user->id}}</h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                    <form method="POST" action="{{ url('/profile/store') }}">
-                                                        @csrf
+
+
+                                                              <div class="row mb-3">
+                                                                <label for="user_id"  class="col-sm-4 col-form-label">{{__('User ID')}}</label>
+                                                                <div class="col-sm-6">
+                                                                <input type="text" value="{{old('user_id',$profile->user_id ?? null)}}" class="form-control" id="user_id" name="user_id">
+                                                                @error('user_id') <span class="text-danger">{{ $message }}</span> @enderror</div>
+                                                            </div>
+                                                    
                                                             <div class="row mb-3">
                                                                 <label for="nom"  class="col-sm-4 col-form-label">{{__('Nom')}}</label>
                                                                 <div class="col-sm-6">
@@ -194,6 +207,13 @@
                                                                 @error('cin') <span class="text-danger">{{ $message }}</span> @enderror
                                                                 </div>
                                                             </div>
+                                                            <div class="row mb-3">
+                                                                <label for="type_sang" class="col-sm-4 col-form-label">{{__('Type de sang')}}</label>
+                                                                <div class="col-sm-6">
+                                                                <input type="text" value="{{old('type_sang',$profile->type_sang ?? null)}}" class="form-control" id="type_sang" name="type_sang" >
+                                                                @error('type_sang') <span class="text-danger">{{ $message }}</span> @enderror
+                                                                </div>
+                                                            </div>
                                                             <fieldset class="row mb-3">
                                                                 <legend class="col-form-label col-sm-4 pt-0">{{__('Sex')}}</legend>
                                                                 <div class="col-sm-6">
@@ -212,9 +232,10 @@
                                                                 </div>
                                                             </fieldset>
                                                             <div class="row mb-3">
-                                                                <label for="ddn" class="col-sm-4 col-form-label">Date de Naissance</label>
+                                                                <label for="dtn" class="col-sm-4 col-form-label">Date de Naissance</label>
                                                                 <div class="col-sm-6">
-                                                                <input type="date" class="form-control" name="ddn" id="ddn" value="{{old('ddn',$profile->ddn ?? null)}}">
+                                                                <input type="date" class="form-control" name="dtn" id="dtn" value="{{old('dtn',$profile->dtn ?? null)}}">
+                                                                @error('dtn') <span class="text-danger">{{ $message }}</span> @enderror
                                                                 </div>
                                                             </div>
                                                             <div class="row mb-3">
@@ -241,7 +262,7 @@
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                                                                 <button type="submit" class="btn btn-danger">Enregistrer</button>
                                                             </div>
-                                                        </form>  
+                                                         
 
 
 
@@ -255,7 +276,9 @@
                                                     </div>
                                                 </div>
                                                 </div>
+                                                </form> 
                                             </td>
+                                            
                                         </tr>
                                     @endforeach 
                             </table>

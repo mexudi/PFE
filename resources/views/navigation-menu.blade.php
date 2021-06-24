@@ -5,9 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-              <a  href="{{url('/')}}">Accueil</a>
-                
-                    </a>
+                    <a  href="{{url('/')}}">Accueil</a>
                 </div>
 
                 <!-- Navigation Links -->

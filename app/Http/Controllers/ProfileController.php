@@ -58,6 +58,7 @@ class ProfileController extends Controller
        // $request->validate([ 'dtn'=>'required ']);
         $request->validate([ 'tel'=>'required ']);
         $request->validate([ 'ville'=>'required ']);
+        
 
         $profile = new Profile();
 
@@ -71,8 +72,8 @@ class ProfileController extends Controller
         $profile->user_id = Auth::user()->id;
 
         $profile->save();
-
-        return redirect('/profile');
+        $request->session()->flash('status','le profil est bien enregistrer');
+        return redirect('/admin/users');
         
 
 

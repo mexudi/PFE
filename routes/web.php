@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
@@ -64,7 +65,7 @@ Route::delete('/admin/event/{id}',[EventController::class,'destroy']);
 //profile donneur-CRUD --------------------------------------------------
 
 Route::get('/profile',[ProfileController::class,'index']);
-Route::post('/profile/store',[ProfileController::class,'store']);
+//Route::post('/profile/{id}/store',[ProfileController::class,'store']);
 
 
 //Admin
@@ -72,9 +73,12 @@ Route::get('admin/dashboard',[AdminController::class,'index']);
 Route::get('admin/stock',[AdminController::class,'index_stock']);
 Route::get('admin/profiles',[AdminController::class,'index_profiles']);
 Route::get('admin/users',[AdminController::class,'index_users']);
+Route::post('admin/profil/store',[AdminController::class,'profil_store']);
 
+//Contact us
+Route::get('/contact', [ContactUsController::class, 'createForm']);
 
-
+Route::post('/contact', [ContactUsController::class, 'ContactUsForm'])->name('contact.store');
 
 //END_ADMIN_EVENTS------------------------------------------------------------------
 

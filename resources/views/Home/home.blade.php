@@ -265,7 +265,8 @@ Tout le monde peut donner du sang avec Blood App</h1>
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form  method="post" action="{{url('/contact/store') }}" role="form" class="php-email-form">
+            @csrf
               <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name">Votre Nom</label>
@@ -286,7 +287,7 @@ Tout le monde peut donner du sang avec Blood App</h1>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
+                <div class="error-message">oops</div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
