@@ -19,6 +19,37 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+
+  <link href="css/error.css" rel="stylesheet">
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="{{ mix('js/app.js') }}" defer></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
 
 </head>
 
@@ -63,7 +94,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        
+                        <a class="collapse-item"href="{{url('admin/users')}}">Les Utilisateurs</a>
                         <a class="collapse-item" href="buttons.html">Les profiles</a>
                         <a class="collapse-item" href="cards.html">Une Donnation</a>
                     </div>
@@ -81,7 +112,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                        
-                        <a class="collapse-item" href="{{url('/admin/dashboard/s')}}">Les statistiques de stock</a>
+                        <a class="collapse-item" href="{{url('admin/stock')}}">Les statistiques de stock</a>
                         
                     </div>
                 </div>
@@ -238,39 +269,32 @@
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Les rendez-vous d'aujourd'hui</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Les rendez-vous:</h6>
                                 </div>
                                 <div class="card-body">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Prenom</th>
                                         <th scope="col">Nom</th>
+                                        <th scope="col">Prenom</th>
+                                        <th scope="col">CIN</th>
                                         <th scope="col">Tel</th>
+                                        <th scope="col">Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach ($rds as $rd)
                                         <tr>
-                                        <th scope="row">1</th>
-                                        <td>Zaid</td>
-                                        <td>El Koubra</td>
-                                        <td>0622-894968</td>
+                                            <td>{{$rd->nom}}</td>
+                                            <td>{{$rd->prenom}}</td>
+                                            <td>{{$rd->cin}}</td>
+                                            <td>{{$rd->tel}}</td>
+                                            <td>{{$rd->date}}</td>
                                         </tr>
-                                        <tr>
-                                        <th scope="row">2</th>
-                                        <td>Ouwaiss</td>
-                                        <td>Zlaigi</td>
-                                        <td>0622-894968</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">3</th>
-                                        <td>Soufiane</td>
-                                        <td>Lamchoudi</td>
-                                        <td>0688177484</td>
-                                        </tr>
+                                    @endforeach 
                                     </tbody>
                                 </table>
+                                
                                 </div>
                             </div>
 
@@ -281,53 +305,94 @@
 
                         
                     </div>
+                    
                     <div class="row d-flex justify-content-center">
                         <div class="col-10 mb-4">
                         <!-- Illustrations -->
                         <div class="card shadow mb-4">
                                     <div class="card-header py-3 d-flex justify-content-between">
                                         <h6 class="m-0 font-weight-bold text-primary">Listes des evenements</h6>
-                                        <button class="btn btn-danger">Ajouter</button>
+                                        <button  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Créer un evenement</button>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <form method="POST" action="{{ url('/admin/event/store') }}">
+                                                    @csrf
+                                                    @include('admin.event.form')
+
+                                                    <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                    <button type="submit" class="btn btn-danger">Enregistrer</button>
+                                                </div>
+                                                    
+                                                </form>
+                                                </div>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Fin Model-->
                                     </div>
                                     <div class="card-body">
                                     <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                        <th scope="col">#</th>
+                                        
                                         <th scope="col">Nom</th>
                                         <th scope="col">Location</th>
                                         <th scope="col">date</th>
+                                        
                                         <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>Event 1</td>
-                                        <td>av. Abdelkhalek Torres, Hôpital civil Saniat R'mel...</td>
-                                        <td>15/05/2021</td>
-                                        <td><button class="btn btn-success">Modification</button></td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">2</th>
-                                        <td>Event 2</td>
-                                        <td>av. Abdelkhalek Torres, Hôpital civil Saniat R'mel...</td>
-                                        <td>29/05/2021</td>
-                                        <td><button class="btn btn-success">Modification</button></td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">3</th>
-                                        <td>Event 3</td>
-                                        <td>@av. Abdelkhalek Torres, Hôpital civil Saniat R'mel...</td>
-                                        <td>01/07/2021</td>
-                                        <td><button class="btn btn-success">Modification</button></td>
-                                        </tr>
+                                        @foreach ($events as $event)
+                                            <tr>
+                                                <td>{{$event->name}}</td>
+                                                <td>{{$event->place}}</td>
+                                                <td>{{$event->date}}</td>
+                                                <td><button  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#test">Modification</button>
+                                                     <!-- Modal -->
+                                                    <div class="modal fade" id="test" tabindex="-1" aria-labelledby="testLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="testLabel">Modifier evenement</h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            <form method="POST" action="{{ url('/admin/event/'.$event->id.'/update') }}">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                @include('admin.event.form')
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                                                                    <button type="submit" class="btn btn-danger">Modifier</button>
+                                                                </div>
+                                                                    
+                                                            </form>
+                                                            </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Fin Model-->
+                                                </td>
+                                            </tr>
+                                        @endforeach 
                                     </tbody>
                                 </table>
                                     </div>
                                 </div>
                         </div>
                     </div>
+                    
 
                 </div>
                 <!-- /.container-fluid -->
@@ -375,6 +440,9 @@
             </div>
         </div>
     </div>
+
+
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

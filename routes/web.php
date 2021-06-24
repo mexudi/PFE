@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
@@ -23,9 +24,7 @@ Route::get('/', function () {
     return view('Home.home');
 });
 
-Route::get('/form', function () {
-    return view('profileDonneur.informationPersonnel.create');
-});
+Route::get('/admin/profil/form',[AdminController::class,'profil_form']);
 
 
 
@@ -52,7 +51,7 @@ Route::get('/',[EventController::class,'home']);
 
 
 //Admin_Events-CRUD-------------------------------------------------------
-Route::get('/admin/event',[EventController::class,'index']);
+        //Route::get('/admin/event',[EventController::class,'index']);
 Route::get('/admin/event/create',[EventController::class,'create']);
 Route::post('/admin/event/store',[EventController::class,'store']);
 Route::get('/admin/event/{id}/edit',[EventController::class,'edit']);
@@ -68,6 +67,11 @@ Route::get('/profile',[ProfileController::class,'index']);
 Route::post('/profile/store',[ProfileController::class,'store']);
 
 
+//Admin
+Route::get('admin/dashboard',[AdminController::class,'index']);
+Route::get('admin/stock',[AdminController::class,'index_stock']);
+Route::get('admin/profiles',[AdminController::class,'index_profiles']);
+Route::get('admin/users',[AdminController::class,'index_users']);
 
 
 
@@ -78,16 +82,16 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('admin/dashboard',function(){
-    return view('admin.event.dashboard.index');
-});
 
-Route::get('admin/s',function(){
-    return view('admin.event.dashboard.s');
-});
+
+
 
 
 Route::get('/error',function(){
     return view('home.error');
 });
 
+//Mail
+Route::get('sendbasicemail','MailController@basic_email');
+Route::get('sendhtmlemail','MailController@html_email');
+Route::get('sendattachmentemail','MailController@attachment_email');

@@ -9,16 +9,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Dashboard</title>
+    <title>SB Admin 2 - Tables</title>
 
-    <!-- Custom fonts for this template-->
+    <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Custom styles for this template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -82,7 +85,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+             
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -129,90 +132,52 @@
 
         </ul>
         <!-- End of Sidebar -->
-        <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800" style="margin-top: 50px;"><b>Stock</b></h1>
-                    <p class="mb-4">Cette partie est destinée à donner une vue statistique sur le stockage pour l'administrateur de la plateforme.</p>
+         <!-- Begin Page Content -->
+         <div class="container-fluid">
 
-                    <!-- Content Row -->
-                    <div class="row d-flex justify-content-center">
+                <!-- Page Heading -->
+                <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+                <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                    For more information about DataTables, please visit the <a target="_blank"
+                        href="https://datatables.net">official DataTables documentation</a>.</p>
 
-                    <div class="col-xl-8 col-lg-7">
-                        <!-- Bar Chart -->
-                        <div class="card shadow mb-4">
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Répartition de donnation selon l’âge</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="chart-bar">
-                                            <canvas id="myBarChart"></canvas>
-                                        </div>
-                                        <hr>
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
                                         
-                                    </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            <td>{{$user->id}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
+                                        </tr>
+                                    @endforeach 
+                            </table>
                         </div>
                     </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-
-                        <div class="col-xl-8 col-lg-7 ">
-
-
-                            <!-- Donut Chart -->
-                            <div class="col-xl-4 col-lg-5">
-                                <div class="card shadow mb-4" style="width: 300px;">
-                                    <!-- Card Header - Dropdown -->
-                                    <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Le Nombre de donnation selon sexe</h6>
-                                    </div>
-                                    <!-- Card Body -->
-                                    <div class="card-body ">
-                                        <div class="chart-pie pt-4">
-                                            <canvas id="myPieChart"></canvas>
-                                        </div>
-                                        <hr>
-                                        Le resulat est en %
-                                    </div>
-                                </div>
-                            </div>
-                           
-
-                            
-
-                        </div>
-                        
-                        
-                    </div>
-                    
-                    <div class="row d-flex justify-content-center">
-
-                    <div class="col-xl-8 col-lg-7">
-                        <!-- Area Chart -->
-                        <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">La répartition des paquets de sang selon la quantite total</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart1"></canvas>
-                                    </div>
-                                    <hr>
-                                    
-                                </div>
-                            </div>
-                    </div>
-                    </div>
-
-
                 </div>
-                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
-</body>
+                <!-- /.container-fluid -->
 
-<!-- Bootstrap core JavaScript-->
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -223,10 +188,11 @@
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-area-demo1.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
+
+</body>
+</html>

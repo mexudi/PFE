@@ -70,7 +70,7 @@ class EventController extends Controller
         $event->save();
 
         $request->session()->flash('status','Evenement est bien ajouté ! ');
-        return redirect('/admin/event');
+        return redirect('/admin/dashboard');
     }
 
   
@@ -125,7 +125,7 @@ class EventController extends Controller
         $event->update();
 
         $request->session()->flash('status','Evenement est bien modifié ! ');
-        return redirect('/admin/event');
+        return redirect('/admin/dashboard');
     }
 
     /**

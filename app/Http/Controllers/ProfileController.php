@@ -55,7 +55,7 @@ class ProfileController extends Controller
         $request->validate([ 'prenom'=>'required  ']);
         $request->validate(['cin'=>'required ']);
         $request->validate([ 'dtn'=>'required ']);
-        $request->validate([ 'dtn'=>'required ']);
+       // $request->validate([ 'dtn'=>'required ']);
         $request->validate([ 'tel'=>'required ']);
         $request->validate([ 'ville'=>'required ']);
 

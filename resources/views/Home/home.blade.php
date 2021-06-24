@@ -43,6 +43,7 @@ Tout le monde peut donner du sang avec Blood App</h1>
   </section><!-- End Hero -->
 
   <main id="main">
+  
 
    <!-- ======= About Section ======= -->
    <section id="about" class="about">
